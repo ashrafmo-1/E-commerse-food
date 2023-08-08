@@ -271,4 +271,34 @@ function categoryLists() {
         listItems.appendChild(itemCard)
     });
 };
-categoryLists()
+categoryLists();
+
+// add Element to cart
+document.querySelectorAll('#addToCart').forEach(item => {
+    item.addEventListener('click', addToCart)
+})
+
+var cartData = []
+
+function addToCart() {
+    // console.log(this.parentNode.nextSibling.nextSibling);
+    // console.log(this.parentNode.parentElement);
+    var itemToAdd = this.parentNode.nextSibling.nextSibling.innerText;
+    var itemObject = foodItem.find(ele => ele.name == itemToAdd);
+    // console.log(itemObject)
+
+    var index = cartData.indexOf(itemObject);
+    if (index === -1) {
+        swal({ icon: "success", });
+        cartData = [...cartData, itemObject]
+        console.log(cartData)
+    } else if (index > -1) {
+        swal({
+            title: "It was added",
+        });
+    }
+
+    document.getElementById('orderCart').innerText = "Your orders" + cartData.length
+        // totalAmount()
+        // cartItem()
+}

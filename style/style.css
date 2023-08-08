@@ -155,6 +155,10 @@
     cursor: pointer;
 }
 
+.toggle-car {
+    background-color: green;
+}
+
 #itemCard .itemName {
     font-size: 22px;
     color: red;
