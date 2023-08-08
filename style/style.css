@@ -1,0 +1,336 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-transform: capitalize;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Cairo', sans-serif, 'Roboto', 'Open Sans';
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 200px 2fr 300px;
+}
+
+.menu {
+    background-color: #000000;
+    height: 100vh;
+    text-align: center;
+    position: sticky;
+    top: 0;
+}
+
+.menu .brand {
+    width: 100px;
+    margin: 30px 0;
+}
+
+.menu .menuItems a {
+    display: block;
+    text-align: start;
+    margin: 10px;
+    font-size: 24px;
+    padding: 10px 25px;
+    font-weight: bold;
+    border-radius: 20px;
+    color: #999;
+    transition: .4s;
+}
+
+.menu .menuItems a:hover {
+    background-color: #ffffff15;
+}
+
+.foodsELements {
+    /* display: none; */
+}
+
+#foodContainer {
+    background-color: #333;
+    overflow: scroll;
+    overflow-x: hidden;
+    box-sizing: content-box;
+}
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 20px;
+    background-color: #000000;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    /* width: calc(100% - 250px); */
+}
+
+#header .location,
+#header .controlBox #secrch,
+#header .controlBox #Offers,
+#header .controlBox #orderCart {
+    border: 1px solid #777;
+    padding: 4px 10px;
+    font-size: 26px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: .6s;
+}
+
+#header .location:hover,
+#header .controlBox #secrch:hover,
+#header .controlBox #Offers:hover {
+    background-color: #ffffff15;
+}
+
+#header .controlBox #secrch {
+    margin-right: 10px;
+}
+
+.biryani,
+.chicken,
+.paneer,
+.pureVeg,
+.Chinese,
+.southIndian {
+    margin-top: 50px;
+}
+
+.biryani #itemCard,
+.chicken #itemCard {
+    background-color: #fff;
+}
+
+.paneer #itemCard,
+.pureVeg #itemCard {
+    background-color: #777;
+}
+
+.southIndian #itemCard,
+.Chinese #itemCard {
+    background-color: #5f0000;
+}
+
+#catigoryName {
+    font-size: 30px;
+    margin: 0 0 20px 20px;
+    font-weight: bold;
+    color: white;
+}
+
+.biryani #cards,
+.chicken #cards,
+.paneer #cards,
+.pureVeg #cards,
+.Chinese #cards,
+.southIndian #cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 40px;
+    margin: 0 20px;
+    margin-bottom: 60px;
+}
+
+#headerProduct {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    background-color: #000;
+    padding: 8px 10px;
+}
+
+#headerProduct #addToCart,
+#headerProduct #rate {
+    background-color: red;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 3;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#itemCard .itemName {
+    font-size: 22px;
+    color: red;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#itemCard #priceItem {
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    text-align: center;
+    padding: 4px 9px;
+    background-color: #eee;
+}
+
+.biryani #cards #itemCard img,
+.chicken #cards #itemCard img,
+.paneer #cards #itemCard img,
+.pureVeg #cards #itemCard img,
+.Chinese #cards #itemCard img,
+.southIndian #cards #itemCard img {
+    width: 100%;
+}
+
+.cartOptions {
+    background: #000;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+}
+
+.cartOptions #itemsMenu {
+    color: white;
+    font-size: 27px;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.cartOptions .listItems {
+    margin: 60px 20px 0 20px;
+}
+
+.cartOptions .listItems #item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    border-radius: 20px;
+    padding: 5px 10px;
+    transition: .6s;
+}
+
+.cartOptions .listItems #item:hover {
+    background-color: #ffffff15;
+}
+
+.cartOptions .listItems #item img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+
+/* start Cart Items */
+
+#listItems-d-n {
+    /* display: none; */
+}
+
+.carttoggle {
+    display: none;
+}
+
+#cartPage {
+    color: white;
+    margin-right: 20px;
+    padding: 20px 30px 30px;
+    position: relative;
+}
+
+.titleCart {
+    text-align: center;
+    font-size: 33px;
+    font-weight: bold;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.titleCart::after {
+    content: '';
+    position: absolute;
+    width: 20%;
+    height: 3px;
+    background-color: #fff;
+    left: 50%;
+    top: 40px;
+    transform: translate(-50%);
+}
+
+#cartPage table {
+    width: 100%;
+    text-align: center;
+}
+
+#cartPage table thead td {
+    font-size: 17px;
+    padding-bottom: 10px;
+}
+
+.totalamount {
+    display: none;
+}
+
+#cartPage table tbody td {
+    padding: 10px 0;
+    font-size: 20px;
+}
+
+#cartPage table tbody img {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+}
+
+#cartPage table tbody button {
+    background-color: red;
+    border: 1px solid #eee;
+    padding: 0 16px;
+    font-size: 30px;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+
+/* end Cart Items */
+
+
+/* start chickOut */
+
+#chickOut {
+    background-color: #333;
+    margin-top: 28px;
+    padding: 10px;
+    color: white;
+}
+
+#chickOut #totalItensOrders {
+    font-size: 20px;
+    margin: 20px 0 30px;
+    text-align: center;
+}
+
+#chickOut #totlaPriceOrders {
+    margin: 10px 0;
+    color: rgb(21, 181, 0);
+    font-size: 22px;
+}
+
+#chickOut #totlaPriceOrders {
+    margin: 10px 0;
+    color: rgb(21, 181, 0);
+    font-size: 22px;
+}
+
+#chickOut #delievery {
+    text-decoration: line-through;
+    color: red;
+    margin-bottom: 20px;
+}
+
+#chickOut .cartBtn {
+    padding: 4px 10px;
+    font-size: 22px;
+    background-color: greenyellow;
+    border: 1px solid #eee;
+    cursor: pointer;
+}

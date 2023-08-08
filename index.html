@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="./style/all.min.css">
+    <title>E-commerse</title>
+</head>
+
+<body>
+    <!-- descTop -->
+    <div id="conteiner" class="">
+        <div class="container">
+            <div class="menu">
+                <img src="./images/foodielogo.png" alt="" class="brand">
+                <div class="menuItems">
+                    <a href="#">about us</a>
+                    <a href="#">services</a>
+                    <a href="#">your order</a>
+                    <a href="#">wishlists</a>
+                    <a href="#">cart</a>
+                    <a href="#">contact</a>
+                    <a href="#">check out</a>
+                    <a href="#">call now</a>
+                    <a href="#">log in</a>
+                </div>
+            </div>
+            <div class="foodContainer" id="foodContainer">
+                <div id="header" class="header">
+                    <div class="location">
+                        <span>location <i class="fa-solid fa-map-location"></i></span>
+                    </div>
+                    <div class="controlBox">
+                        <span id="secrch">secrch <i class="fa-solid fa-magnifying-glass"></i></span>
+                        <span id="Offers">Offers <i class="fa-solid fa-tags"></i></span>
+                        <span id="orderCart">your orders <span class="items">0</span> <i class="fa-solid fa-cart-shopping"></i></span>
+                    </div>
+                </div>
+                <div class="foodsELements" id="foodsELements">
+                    <div class="biryani" id="biryani">
+                        <p id="catigoryName">Biryani</p>
+                        <div id="cards"> </div>
+                    </div>
+                    <div class="chicken" id="chicken">
+                        <p id="catigoryName">Chicken Delicious</p>
+                        <div id="cards"> </div>
+                    </div>
+                    <div class="paneer" id="paneer">
+                        <p id="catigoryName">Matar Paneer</p>
+                        <div id="cards"> </div>
+                    </div>
+                    <div class="pureVeg" id="pureVeg">
+                        <p id="catigoryName">Veg Jalfrezi</p>
+                        <div id="cards"> </div>
+                    </div>
+                    <div class="Chinese " id="Chinese">
+                        <p id="catigoryName">Momos</p>
+                        <div id="cards"> </div>
+                    </div>
+                    <div class="southIndian" id="southIndian">
+                        <p id="catigoryName">Plain Dosa</p>
+                        <div id="cards"> </div>
+                    </div>
+                </div>
+
+                <div id="cartPage" class="carttoggle">
+                    <div class="titleCart">your orders</div>
+                    <div class="totalamount">total amount : $99</div>
+                    <table>
+                        <thead>
+                            <td>item</td>
+                            <td>name</td>
+                            <td>quantity</td>
+                            <td>price</td>
+                        </thead>
+                        <tbody id="bodyTable">
+                            <tr>
+                                <td>
+                                    <img src="./images/chicken/Chicken-do-Pyaza.jpg" alt="img">
+                                </td>
+                                <td>
+                                    Chicken Curry
+                                </td>
+                                <td>
+                                    <button class="decrese-item">
+                                        -
+                                    </button>
+                                    <span>1</span>
+                                    <button class="incease-item">
+                                        +
+                                    </button>
+                                    <td>10</td>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+            <div class="cartOptions">
+                <h4 id="itemsMenu">go for hunt</h4>
+                <div class="listItems" id="listItems-d-n">
+
+                </div>
+                <div class="carttoggle" id="chickOut">
+                    <div id="totalItensOrders">total items order: 20</div>
+                    <div id="totlaPriceOrders">total price: $1000</div>
+                    <div id="delievery" class="">free Delievery on above $50</div>
+                    <button class="cartBtn">chick out</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/master.js" type="module"></script>
+</body>
+
+</html>
