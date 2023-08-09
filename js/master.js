@@ -281,24 +281,137 @@ document.querySelectorAll('#addToCart').forEach(item => {
 var cartData = []
 
 function addToCart() {
-    // console.log(this.parentNode.nextSibling.nextSibling);
-    // console.log(this.parentNode.parentElement);
     var itemToAdd = this.parentNode.nextSibling.nextSibling.innerText;
     var itemObject = foodItem.find(ele => ele.name == itemToAdd);
-    // console.log(itemObject)
 
     var index = cartData.indexOf(itemObject);
     if (index === -1) {
-        swal({ icon: "success", });
+        swal("Done", "Add In Your Shopinng Car", "success")
         cartData = [...cartData, itemObject]
         console.log(cartData)
     } else if (index > -1) {
-        swal({
-            title: "It was added",
-        });
+        swal("sorry", "Chick Your Shopinng Car", "warning")
     }
 
     document.getElementById('orderCart').innerText = "Your orders" + cartData.length
-        // totalAmount()
-        // cartItem()
+    totalAmount()
+    cartItem()
+}
+
+
+function cartItem() {
+    var bodyTable = document.querySelector('#bodyTable');
+    bodyTable.innerHTML = '';
+    cartData.map(item => {
+        var tableRow = document.createElement('tr');
+
+        var tableData = document.createElement('td')
+        var img = document.createElement('img');
+        img.src = item.img
+        tableData.appendChild(img)
+
+        var tableDataTwo = document.createElement('td');
+        tableDataTwo.innerHTML = item.name;
+
+        var tableDataThree = document.createElement('td');
+        var btnOne = document.createElement('button');
+        btnOne.className = 'decrese-item'
+        btnOne.innerHTML = '-'
+        var span = document.createElement('button');
+        span.innerHTML = item.quantity
+        var btnTwo = document.createElement('button');
+        btnTwo.className = 'incease-item';
+        btnTwo.innerHTML = '+';
+
+        tableDataThree.appendChild(btnOne);
+        tableDataThree.appendChild(span);
+        tableDataThree.appendChild(btnTwo);
+
+        var tableDataFour = document.createElement('td');
+        tableDataFour.innerHTML = item.price;
+
+        tableRow.append(tableData);
+        tableRow.append(tableDataTwo);
+        tableRow.append(tableDataThree);
+        tableRow.append(tableDataFour);
+
+        bodyTable.appendChild(tableRow)
+    });
+
+    document.querySelectorAll('.incease-item').forEach(item => {
+        item.addEventListener('click', incrementItem)
+    });
+
+    document.querySelectorAll('.decrese-item').forEach(item => {
+        item.addEventListener('click', decreseItems)
+    });
+}
+
+
+
+function incrementItem() {
+    let itemsToinc = this.parentNode.previousSibling.innerText;
+    var incObj = cartData.find(element => element.name == itemsToinc);
+    incObj.quantity += 1;
+
+    currentPrice = (incObj.price * incObj.quantity - incObj.price * (incObj.quantity - 1)) / (incObj.quantity - 1)
+    incObj.price = currentPrice * incObj.quantity;
+
+    totalAmount();
+    cartItem();
+}
+
+
+var currentPrice = 0;
+
+function decreseItems() {
+    let itemsToinc = this.parentNode.previousSibling.innerText;
+    let decObj = cartData.find(ele => ele.name == itemsToinc);
+    let ind = cartData.indexOf(decObj);
+    if (decObj.quantity > 1) {
+        currentPrice = (decObj.price * decObj.quantity - decObj.price * (decObj.quantity - 1)) / (decObj.quantity);
+        decObj.quantity -= 1;
+        decObj.price = currentPrice * decObj.quantity;
+    } else {
+        cartData.splice(ind, 1);
+        document.getElementById('orderCart').innerHTML = ' ' + cartData.length + 'itemss';
+        document.getElementById('addToCart').innerHTML = ' ' + cartData.length;
+        if (cartData.length < 1 && flag) {
+            document.getElementById('foodsELements').classList.toggle('foodsELements');
+            document.getElementById('listItems-d-n').classList.toggle('foodsELements');
+
+            document.getElementById('cartPage').classList.toggle('carttoggle');
+            document.getElementById('header').classList.toggle('.carttoggle');
+            document.getElementById('chickOut').classList.toggle('carttoggle');
+            flag = false;
+            swal("sorry", "currently no Thing in car", "warning")
+        }
+    }
+    totalAmount()
+    cartItem()
+}
+
+function totalAmount() {
+    var sum = 0;
+    cartData.map(item => {
+        sum += item.price
+    })
+    document.getElementById('totalItensOrders').innerHTML = 'total items order : ' + cartData.length;
+    document.getElementById('totlaPriceOrders').innerHTML = 'total price : ' + sum;
+}
+
+document.getElementById('orderCart').addEventListener('click', cartToggle);
+var flag = false
+
+function cartToggle() {
+    if (cartData = 4) {
+        document.getElementById('foodsELements').classList.toggle('foodsELements');
+        document.getElementById('cartOptions').classList.toggle('foodsELements');
+        document.getElementById('cartPage').classList.toggle('carttoggle');
+        document.getElementById('chickOut').classList.toggle('carttoggle');
+        document.getElementById('chickOut').classList.toggle('carttoggle');
+        flag = true;
+    } else {
+        swal("sorry", "currently no Thing in ahhhh", "warning")
+    }
 }
