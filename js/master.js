@@ -249,33 +249,39 @@ displaysItems()
 
 
 
-const categoryListData = [...new Map(foodItem.map(item => [item['category'], item])).values()];
-console.log(categoryListData);
+// const categoryListData = [...new Map(foodItem.map(item => [item['category'], item])).values()];
+// console.log(categoryListData);
 
-function categoryLists() {
-    var categoryList = document.querySelector('.cartOptions');
-    categoryListData.map(item => {
-        var listItems = document.querySelector('.listItems')
-        var itemCard = document.createElement('div');
-        itemCard.id = 'item';
+// function categoryLists() {
+//     var categoryList = document.querySelector('.cartOptions');
+//     categoryListData.map(item => {
+//         var listItems = document.querySelector('.listItems')
+//         var itemCard = document.createElement('div');
+//         itemCard.id = 'item';
 
-        var img = document.createElement('img');
-        img.src = item.img
-        var linstName = document.createElement('a');
-        linstName.className = 'linstName'
-        linstName.innerText = item.category;
-        linstName.setAttribute('href', '#' + item.category);
+//         var img = document.createElement('img');
+//         img.src = item.img
+//         var linstName = document.createElement('a');
+//         linstName.className = 'linstName'
+//         linstName.innerText = item.category;
+//         linstName.setAttribute('href', '#' + item.category);
 
-        itemCard.appendChild(img);
-        itemCard.appendChild(linstName);
-        listItems.appendChild(itemCard)
-    });
-};
-categoryLists();
+//         itemCard.appendChild(img);
+//         itemCard.appendChild(linstName);
+//         listItems.appendChild(itemCard)
+//     });
+// };
+// categoryLists();
+
+
 
 // add Element to cart
+
+
+
+
 document.querySelectorAll('#addToCart').forEach(item => {
-    item.addEventListener('click', addToCart)
+    item.addEventListener('click', addToCart);
 })
 
 var cartData = []
@@ -286,16 +292,17 @@ function addToCart() {
 
     var index = cartData.indexOf(itemObject);
     if (index === -1) {
-        swal("Done", "Add In Your Shopinng Car", "success")
-        cartData = [...cartData, itemObject]
-        console.log(cartData)
+        swal("Done", "Add In Your Shopinng Car", "success");
+        cartData = [...cartData, itemObject];
+        console.log(cartData);
     } else if (index > -1) {
-        swal("sorry", "Chick Your Shopinng Car", "warning")
-    }
+        swal("sorry", "Chick Your Shopinng Car", "warning");
+    };
 
-    document.getElementById('orderCart').innerText = "Your orders" + cartData.length
-    totalAmount()
-    cartItem()
+
+    document.getElementById('orderCart').innerText = "Your orders " + cartData.length;
+    totalAmount();
+    cartItem();
 }
 
 
@@ -348,6 +355,7 @@ function cartItem() {
 }
 
 
+var currentPrice = 0;
 
 function incrementItem() {
     let itemsToinc = this.parentNode.previousSibling.innerText;
@@ -362,11 +370,11 @@ function incrementItem() {
 }
 
 
-var currentPrice = 0;
+
 
 function decreseItems() {
-    let itemsToinc = this.parentNode.previousSibling.innerText;
-    let decObj = cartData.find(ele => ele.name == itemsToinc);
+    let itemsToDnc = this.parentNode.previousSibling.innerText;
+    let decObj = cartData.find(ele => ele.name == itemsToDnc);
     let ind = cartData.indexOf(decObj);
     if (decObj.quantity > 1) {
         currentPrice = (decObj.price * decObj.quantity - decObj.price * (decObj.quantity - 1)) / (decObj.quantity);
@@ -378,8 +386,6 @@ function decreseItems() {
         document.getElementById('addToCart').innerHTML = ' ' + cartData.length;
         if (cartData.length < 1 && flag) {
             document.getElementById('foodsELements').classList.toggle('foodsELements');
-            document.getElementById('listItems-d-n').classList.toggle('foodsELements');
-
             document.getElementById('cartPage').classList.toggle('carttoggle');
             document.getElementById('header').classList.toggle('.carttoggle');
             document.getElementById('chickOut').classList.toggle('carttoggle');
@@ -404,14 +410,18 @@ document.getElementById('orderCart').addEventListener('click', cartToggle);
 var flag = false
 
 function cartToggle() {
-    if (cartData = 4) {
+    if (cartData.length > 0) {
         document.getElementById('foodsELements').classList.toggle('foodsELements');
-        document.getElementById('cartOptions').classList.toggle('foodsELements');
         document.getElementById('cartPage').classList.toggle('carttoggle');
-        document.getElementById('chickOut').classList.toggle('carttoggle');
         document.getElementById('chickOut').classList.toggle('carttoggle');
         flag = true;
     } else {
-        swal("sorry", "currently no Thing in ahhhh", "warning")
+        swal("sorry", "currently no Thing in car", "warning")
     }
 }
+
+// event on click
+let alert = document.querySelector('#chickOut .alert')
+document.querySelector('.cartBtn').addEventListener('click', (event) => {
+    alert.style.display = 'block'
+})

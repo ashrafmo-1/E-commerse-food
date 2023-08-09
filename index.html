@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./images/foodielogo.png" type="image/x-icon">
     <link rel="stylesheet" href="./style/style.css">
     <link rel="stylesheet" href="./style/all.min.css">
     <title>E-commerse</title>
@@ -30,12 +31,15 @@
             <div class="foodContainer" id="foodContainer">
                 <div id="header" class="header">
                     <div class="location">
-                        <span>location <i class="fa-solid fa-map-location"></i></span>
+                        <span>location <i class="fa-solid fa-map-location" id="iconCar"></i></span>
                     </div>
                     <div class="controlBox">
                         <span id="secrch">secrch <i class="fa-solid fa-magnifying-glass"></i></span>
                         <span id="Offers">Offers <i class="fa-solid fa-tags"></i></span>
-                        <span id="orderCart"> 0</span>
+                        <span id="HeadercartBtn">
+                            <i class="fa-solid fa-cart-shopping"></i> <span id="orderCart"> Your orders 0</span>
+                        </span>
+
                     </div>
                 </div>
 
@@ -80,20 +84,13 @@
 
                         </tbody>
                     </table>
-                </div>
-            </div>
-
-
-            <div class="cartOptions" id="cartOptions">
-                <h4 id="itemsMenu">go for hunt</h4>
-                <div class="listItems" id="listItems-d-n">
-
-                </div>
-                <div class="carttoggle" id="chickOut">
-                    <div id="totalItensOrders">total items order: 0</div>
-                    <div id="totlaPriceOrders">total price: 0</div>
-                    <div id="delievery" class="">free Delievery on above $50</div>
-                    <button class="cartBtn">chick out</button>
+                    <div class="carttoggle" id="chickOut">
+                        <div id="totalItensOrders">total items order: 0</div>
+                        <div id="totlaPriceOrders">total price: 0</div>
+                        <div id="delievery" class="">free Delievery on above $50</div>
+                        <button class="cartBtn">chick out</button>
+                        <span class="alert">comming son</span>
+                    </div>
                 </div>
             </div>
         </div>
